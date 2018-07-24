@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const port = 3000;
+const port = process.env.PORT || 3000;
 //init app
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
@@ -100,5 +100,5 @@ app.post("/todo/edit/:id", (req, res, next)=>{
 });
 //listen to port 3000
 app.listen(port,()=>{
-  console.log("port started at 3000");
+  console.log(`port started at ${port}`);
 })
